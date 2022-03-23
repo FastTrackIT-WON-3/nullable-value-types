@@ -11,6 +11,26 @@ namespace NullableValueTypes
 
             int? number = null;
             PrintNullableTypeDetails(number, -10);
+
+            int? number2 = 10;
+
+            if (number < number2)
+            {
+                Console.WriteLine($"{number} is less than {number2}");
+            }
+            else if (number > number2)
+            {
+                Console.WriteLine($"{number} is greater than {number2}");
+            }
+            else if (number == number2)
+            {
+                Console.WriteLine($"{number} is equal to {number2}");
+            }
+            else
+            {
+                Console.WriteLine($"Something else!");
+            }
+
         }
 
         private static void PrintNullableTypeDetails<T>(T? value, T defaultValue)
@@ -19,7 +39,8 @@ namespace NullableValueTypes
             Console.WriteLine("*******************************************");
             Console.WriteLine($"value={value}");
             Console.WriteLine($"value.HasValue={value.HasValue}");
-            if (value.HasValue)
+            bool isNull = value is null;
+            if (!isNull)
             {
                 Console.WriteLine($"value.Value={value.Value}");
             }
